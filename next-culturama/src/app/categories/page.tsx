@@ -15,8 +15,10 @@ import {
   MilitaryTech,
   FolderOpen,
 } from "@mui/icons-material";
+import { useRouter } from "next/navigation";
 
 const Categories = () => {
+  const router = useRouter();
   const { categoryId } = useParams();
   const { categoriesWithEventCount, getCategoryById, getEventsByCategory } =
     useCategories();
@@ -65,7 +67,7 @@ const Categories = () => {
 
           {/* Voltar */}
           <div className="mb-8">
-            <Button onClick={() => window.history.back()}>
+            <Button onClick={() => router.back()}>
               ← Voltar para Categorias
             </Button>
           </div>
@@ -147,9 +149,7 @@ const Categories = () => {
             <div
               key={category.id}
               className="transform hover:scale-105 transition-transform duration-300 cursor-pointer"
-              onClick={() =>
-                (window.location.href = `/categories/${category.id}`)
-              }
+              onClick={() => router.push(`/categories/${category.id}`)}
             >
               <CategoryCard
                 title={`${category.name.toUpperCase()}`}
@@ -216,9 +216,7 @@ const Categories = () => {
                     eventos
                   </p>
                   <Button
-                    onClick={() =>
-                      (window.location.href = `/categories/${category.id}`)
-                    }
+                    onClick={() => router.push(`/categories/${category.id}`)}
                     className="mt-4"
                   >
                     Ver Eventos

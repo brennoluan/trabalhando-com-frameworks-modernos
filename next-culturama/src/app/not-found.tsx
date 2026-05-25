@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import Button from "@/layout/ui/button";
 
 import {
@@ -12,6 +13,7 @@ import {
 import Link from "next/link";
 
 const NotFound = () => {
+  const router = useRouter();
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="text-center max-w-md mx-auto">
@@ -35,7 +37,7 @@ const NotFound = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button onClick={() => (window.location.href = "/")}>
+          <Button onClick={() => router.push("/")}>
             <span className="flex items-center gap-2">
               <Home style={{ fontSize: "1.2rem" }} />
               Voltar ao Início
@@ -43,7 +45,7 @@ const NotFound = () => {
           </Button>
 
           <Button
-            onClick={() => (window.location.href = "/events")}
+            onClick={() => router.push("/events")}
             className="bg-gray-800 hover:bg-gray-700"
           >
             <span className="flex items-center gap-2">
