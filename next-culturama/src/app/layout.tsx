@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fjalla_One, Work_Sans } from "next/font/google";
 import "./globals.css";
+import { Providers } from "./providers";
 
 const fjallaOne = Fjalla_One({
   weight: "400",
@@ -28,7 +29,9 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${fjallaOne.variable} ${workSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
