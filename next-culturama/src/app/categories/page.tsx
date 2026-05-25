@@ -110,7 +110,7 @@ const Categories = () => {
                       title={event.name}
                       date={formatEventDate(event.date)}
                       location={event.location}
-                      href={`/eventos/${event.id}`}
+                      href={`/events/${event.id}`}
                     />
                   </div>
                 ))}
